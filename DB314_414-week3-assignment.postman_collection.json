@@ -1,0 +1,186 @@
+{
+  "info": {
+    "_postman_id": "dc8faa20-03aa-40d0-8958-498965445cd0",
+    "name": "DB314_414-week3-assignment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "59290601",
+    "_collection_link": "https://go.postman.co/collection/59290601-dc8faa20-03aa-40d0-8958-498965445cd0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Valid Request",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"sku\": \"CAT-001\",\r\n  \"price\": 49.99,\r\n  \"tags\": [\"electronics\", \"office\", \"wireless\"],\r\n  \"vendor\": {\r\n    \"vendorName\": \"TechCorp Supplies\",\r\n    \"contactEmail\": \"support@techcorp.com\"\r\n  }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/catalog/items",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "catalog",
+            "items"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Invalid SKU Format",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"sku\": \"cat-one\", \r\n  \"price\": 49.99,\r\n  \"tags\": [\"electronics\"],\r\n  \"vendor\": { \"vendorName\": \"TechCorp\", \"contactEmail\": \"sup@tech.com\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/catalog/items",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "catalog",
+            "items"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Non positive Price",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"sku\": \"CAT-002\",\r\n  \"price\": 0, \r\n  \"tags\": [\"electronics\"],\r\n  \"vendor\": { \"vendorName\": \"TechCorp\", \"contactEmail\": \"sup@tech.com\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/catalog/items",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "catalog",
+            "items"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Duplicated Tags in Array",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"sku\": \"CAT-003\",\r\n  \"price\": 25.00,\r\n  \"tags\": [\"office\", \"office\"], \r\n  \"vendor\": { \"vendorName\": \"TechCorp\", \"contactEmail\": \"sup@tech.com\" }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/catalog/items",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "catalog",
+            "items"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Missing Vendor Details",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"sku\": \"CAT-004\",\r\n  \"price\": 15.00,\r\n  \"tags\": [\"accessories\"]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/catalog/items",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "catalog",
+            "items"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
